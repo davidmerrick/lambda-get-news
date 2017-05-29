@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/davidmerrick/lambda-get-tweets#readme",
   "dependencies": {
-    "twitter": "^1.7.0"
+    "axios": "^0.16.1"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",

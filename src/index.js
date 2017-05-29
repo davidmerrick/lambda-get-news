@@ -1,18 +1,12 @@
 'use strict'
 
-import Twitter from 'twitter'
+import axios from 'axios'
 
-let client = new Twitter({
-    consumer_key: process.env.CONSUMER_KEY,
-    consumer_secret: process.env.CONSUMER_SECRET,
-    access_token_key: process.env.ACCESS_TOKEN_KEY,
-    access_token_secret: process.env.ACCESS_TOKEN_SECRET
-});
-
-let params = {screen_name: process.env.SCREEN_NAME};
-
-exports.handler = function index(event, context, callback){
-    client.get(`statuses/user_timeline`, params, (err, tweets, response) => {
-        callback(null, tweets);
-    });
-}
+exports.handler = async function index(event, context, callback) {
+    let newsSource = "cnn";
+    let url = `https://newsapi.org/v1/articles?source=${newsSource}&sortBy=top&apiKey=${process.env.NEWS_API_KEY}`;
+    let response = await axios.get(url);
+    let articles = response.data.articles;
+    let filtered = articles.filter(item => item.url.indexOf("politics") !== -1);
+    callback(null, filtered);
+};
