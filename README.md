@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/davidmerrick/lambda-get-tweets.svg?branch=master)](https://travis-ci.org/davidmerrick/lambda-get-tweets)
+[![Build Status](https://travis-ci.org/davidmerrick/lambda-get-news.svg?branch=master)](https://travis-ci.org/davidmerrick/lambda-get-news)
 
 Lambda Function to fetch Latest political news.
 
